@@ -17,6 +17,7 @@ call git checkout bdba2961bf7942eb529a1591a7499b5d15af73bf
 git config --global url."https://".insteadOf git://
 pip install -r %DIR%doccano\requirements.txt
 cd %DIR%doccano\frontend
+SET PATH=%PATH%;%systemroot%\System32\WindowsPowerShell\v1.0\
 call npm install --global --production windows-build-tools
 call npm install
 call npm run build
