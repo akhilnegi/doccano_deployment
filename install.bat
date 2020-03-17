@@ -7,6 +7,7 @@ cd %DIR%
 call refresh_path.bat
 ::install git,node and python
 %systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& '%DIR%install_deps.ps1' %*" -Verb RunAs
+SET PATH=%PATH%;C:\Program Files\Git\bin;C:\Program Files\nodejs
 call refresh_path.bat
 pip install virtualenv 
 virtualenv venv
