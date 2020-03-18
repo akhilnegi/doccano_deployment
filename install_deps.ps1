@@ -1,5 +1,4 @@
 
-#$env:PATH += ';C:\ProgramData\chocolatey\bin'
 $git_installed = cver all -lo | Select-string -Pattern "^git"
 if ($git_installed.length -eq 0 ) {
     choco install -y git
@@ -27,11 +26,4 @@ if ($git_installed.length -eq 0 ) {
     }
 else {
     echo "Skipping nssm installation"
-    }
-#$git_installed = cver all -lo | Select-string -Pattern "^visualstudio2017buildtools"
-#if ($git_installed.length -eq 0 ) {
-#    choco install -y visualstudio2017buildtools
-#    }
-#else {
-#    echo "Skipping visualstudio2017buildtools installation"
-#    }
+   }

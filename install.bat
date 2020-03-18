@@ -18,13 +18,14 @@ call git checkout bdba2961bf7942eb529a1591a7499b5d15af73bf
 git config --global url."https://".insteadOf git://
 pip install -r %DIR%doccano\requirements.txt
 cd %DIR%doccano\frontend
-SET PATH=%PATH%;%systemroot%\System32\WindowsPowerShell\v1.0\
-::call npm install --global --production windows-build-tools
+::SET PATH=%PATH%;%systemroot%\System32\WindowsPowerShell\v1.0\
+call npm install --global windows-build-tools --vs2015
+SET NODE_GYP_FORCE_PYTHON=%userprofile%\.windows-build-tools\python27\python.exe
 call npm install
 call npm run build
 cd %DIR%doccano\app
-python manage.py migrate
-python manage.py createsuperuser
+python %DIR%doccano\app\manage.py migrate
+python %DIR%doccano\app\manage.py createsuperuser
 call deactivate
 cd %DIR%doccano\app\server\static
 call npm install
